@@ -14,7 +14,7 @@ Have a player enter a word that will be guessed during the game. The word is the
 
 ## Wire-Frames
 
-![Spaceman Wireframe]()
+![Spaceman Wireframe](https://i.imgur.com/2zAktIH.png)
 
 ## User Stories
 
