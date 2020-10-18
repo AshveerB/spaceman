@@ -1,4 +1,5 @@
 console.log('JS file connected');
+// Check secret word for guess
 let secretWord = 'test';
 let capitalizeSecretWord = secretWord.toUpperCase();
 let secretWordArray = capitalizeSecretWord.split('');
@@ -9,3 +10,17 @@ if (secretWordArray.includes(playerGuess)) {
 }
 playerGuess = 'A';
 console.log('got here');
+
+// Grab Buttons to check letter guess
+const guesses = document.querySelectorAll('span');
+
+guesses.forEach((element) => {
+	element.addEventListener('click', checkGuess);
+});
+
+function checkGuess(event) {
+	event.target.disabled;
+	console.log(event.target.innerText);
+}
+
+//Grab secret word from form
