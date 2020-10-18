@@ -24,3 +24,14 @@ function checkGuess(event) {
 }
 
 //Grab secret word from form
+const inputField = document.querySelector('.inputField')
+const inputBtn = document.querySelector('.inputBtn')
+
+inputBtn.addEventListener('click', getSecretWord)
+
+function getSecretWord(event) {
+	event.preventDefault();
+	console.log(inputField.value)
+}
+
+// Win condition
