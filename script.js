@@ -12,26 +12,26 @@ playerGuess = 'A';
 console.log('got here');
 
 // Grab Buttons to check letter guess
-const guesses = document.querySelectorAll('span');
+const guesses = document.querySelectorAll('.alphabet');
 
 guesses.forEach((element) => {
 	element.addEventListener('click', checkGuess);
 });
 
 function checkGuess(event) {
-	event.target.disabled;
+	event.target.disabled = true;
 	console.log(event.target.innerText);
 }
 
 //Grab secret word from form
-const inputField = document.querySelector('.inputField')
-const inputBtn = document.querySelector('.inputBtn')
+const inputField = document.querySelector('.inputField');
+const inputBtn = document.querySelector('.inputBtn');
 
-inputBtn.addEventListener('click', getSecretWord)
+inputBtn.addEventListener('click', getSecretWord);
 
 function getSecretWord(event) {
 	event.preventDefault();
-	console.log(inputField.value)
+	console.log(inputField.value);
 }
 
 // Win condition
