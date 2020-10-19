@@ -27,21 +27,23 @@ function getSecretWord(event) {
 	inputField.disabled = true;
 	inputBtn.disabled = true;
 	console.log(secretWordArray);
-	return secretWordArray;
-	//use array.length to create blank spaces for player to guess
+	checkWin();
 }
+
+//use array.length to create blank spaces for player to guess
 
 function checkGuess(event) {
 	event.target.disabled = true;
 	playerGuess = event.target.innerText;
 	console.log(playerGuess);
-	// if (secretWordArray.includes(playerGuess)) {
-	// 	console.log('True');
-	// }
+	checkWin();
 }
 
 function checkWin() {
 	console.log('win/lose');
+	// if (secretWordArray.includes(playerGuess)) {
+	// 	console.log('True');
+	// }
 }
 
 function resetGame() {
