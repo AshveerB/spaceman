@@ -1,6 +1,4 @@
 // Variables
-let secretWord = '';
-let playerGuess = '';
 const maxGuesses = 0;
 const guesses = document.querySelectorAll('.alphabet');
 const inputField = document.querySelector('.inputField');
@@ -21,13 +19,12 @@ rulesBtn.addEventListener('click', rules);
 // Functions
 function getSecretWord(event) {
 	event.preventDefault();
-	let capitalizeSecretWord = inputField.value.toUpperCase();
-	let secretWordArray = capitalizeSecretWord.split('');
+	capitalizeSecretWord = inputField.value.toUpperCase();
+	secretWordArray = capitalizeSecretWord.split('');
 	inputField.value = '';
 	inputField.disabled = true;
 	inputBtn.disabled = true;
 	console.log(secretWordArray);
-	checkWin();
 }
 
 //use array.length to create blank spaces for player to guess
@@ -41,9 +38,11 @@ function checkGuess(event) {
 
 function checkWin() {
 	console.log('win/lose');
-	// if (secretWordArray.includes(playerGuess)) {
-	// 	console.log('True');
-	// }
+	if (secretWordArray.includes(playerGuess)) {
+		console.log('True');
+	} else {
+		console.log('false');
+	}
 }
 
 function resetGame() {
