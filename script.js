@@ -1,9 +1,9 @@
 // Variables
-const maxGuesses = 0;
+let maxGuesses = 0;
 const guesses = document.querySelectorAll('.alphabet');
 const inputField = document.querySelector('.inputField');
 const inputBtn = document.querySelector('.inputBtn');
-const wrongGuesses = document.querySelector('.wrongGuessesElement');
+const secretWord = document.querySelector('.secretWordElement');
 const winElement = document.querySelector('.winElement');
 const resetBtn = document.querySelector('.reset');
 const rulesBtn = document.querySelector('.rules');
@@ -37,16 +37,27 @@ function checkGuess(event) {
 }
 
 function checkWin() {
-	console.log('win/lose');
-	if (secretWordArray.includes(playerGuess)) {
-		console.log('True');
-	} else {
-		console.log('false');
+	if (!secretWordArray.includes(playerGuess)) {
+		maxGuesses++;
+	}
+	if (maxGuesses == 7) {
+		console.log('You Lose');
+		guesses.forEach((element) => {
+			element.disabled = true;
+		});
+		winElement.innerText = 'You Lose';
 	}
 }
 
 function resetGame() {
-	console.log('resetBtn');
+	guesses.forEach((element) => {
+		element.disabled = false;
+	});
+	inputField.disabled = false;
+	inputBtn.disabled = false;
+	maxGuesses = 0;
+	secretWordArray = [];
+	playerGuess = '';
 }
 
 function rules() {
