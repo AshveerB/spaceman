@@ -7,6 +7,7 @@ const secretWord = document.querySelector('.secretWordElement');
 const winElement = document.querySelector('.winElement');
 const resetBtn = document.querySelector('.reset');
 const rulesBtn = document.querySelector('.rules');
+const numberOfWrongGuesses = document.querySelector('.numberOfWrongGuesses');
 
 // Event Listeners
 inputBtn.addEventListener('click', getSecretWord);
@@ -24,7 +25,7 @@ function getSecretWord(event) {
 	inputField.value = '';
 	inputField.disabled = true;
 	inputBtn.disabled = true;
-	console.log(secretWordArray);
+	// console.log(secretWordArray);
 }
 
 //use array.length to create blank spaces for player to guess
@@ -32,21 +33,22 @@ function getSecretWord(event) {
 function checkGuess(event) {
 	event.target.disabled = true;
 	playerGuess = event.target.innerText;
-	console.log(playerGuess);
+	// console.log(playerGuess);
 	checkWin();
 }
 
 function checkWin() {
 	if (!secretWordArray.includes(playerGuess)) {
 		maxGuesses++;
+		// console.log(maxGuesses)
 	}
 	if (maxGuesses == 7) {
-		console.log('You Lose');
+		// console.log('You Lose');
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});
-		winElement.innerText = 'You Lose';
 	}
+	render();
 }
 
 function resetGame() {
@@ -58,6 +60,15 @@ function resetGame() {
 	maxGuesses = 0;
 	secretWordArray = [];
 	playerGuess = '';
+	numberOfWrongGuesses.innerText = '';
+	winElement.innerText = 'Keep Guessing!';
+}
+
+function render() {
+	numberOfWrongGuesses.innerText = `X * ${maxGuesses}`;
+	if (maxGuesses == 7) {
+		winElement.innerText = 'You Lose';
+	}
 }
 
 function rules() {
