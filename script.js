@@ -26,25 +26,25 @@ function getSecretWord(event) {
 	inputField.value = '';
 	inputField.disabled = true;
 	inputBtn.disabled = true;
-	// console.log(secretWordArray);
+	for (let i = 0; i < secretWordArray.length; i++) {
+		dashes = document.createElement('span');
+		secretWord.appendChild(dashes);
+		dashes.innerText = '_ ';
+		console.log('hi');
+	}
 }
-
-//use array.length to create blank spaces for player to guess
 
 function checkGuess(event) {
 	event.target.disabled = true;
 	playerGuess = event.target.innerText;
-	// console.log(playerGuess);
 	checkWin();
 }
 
 function checkWin() {
 	if (!secretWordArray.includes(playerGuess)) {
 		maxGuesses++;
-		// console.log(maxGuesses)
 	}
 	if (maxGuesses == 7) {
-		// console.log('You Lose');
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});
@@ -63,6 +63,7 @@ function resetGame() {
 	playerGuess = '';
 	numberOfWrongGuesses.innerText = '';
 	winElement.innerText = 'Keep Guessing!';
+	secretWord.innerText = '';
 }
 
 function render() {

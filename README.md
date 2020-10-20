@@ -22,7 +22,6 @@ Have a player enter a word that will be guessed during the game. The word is the
 - As a player I would Like to know how many guesses I can make so that I can be more strategic about my guesses.
 - As a player I would like to be able to see my previous guesses so I do not make the same guess twice.
 - As a player I would like to know when the round is over so that we can understand the flow the game.
-- As a player I would like to have a chance to pick the secret word and to guess what the secret word is.
 
 ## Stretch Goals
 
