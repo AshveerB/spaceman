@@ -20,6 +20,7 @@ rulesBtn.addEventListener('click', rules);
 // Functions
 function getSecretWord(event) {
 	event.preventDefault();
+	//restrict secret word to letters of alphabet, no numbers or sp. char.
 	capitalizeSecretWord = inputField.value.toUpperCase();
 	secretWordArray = capitalizeSecretWord.split('');
 	inputField.value = '';
@@ -65,7 +66,7 @@ function resetGame() {
 }
 
 function render() {
-	numberOfWrongGuesses.innerText = `X * ${maxGuesses}`;
+	numberOfWrongGuesses.innerText = `X = ${maxGuesses}`;
 	if (maxGuesses == 7) {
 		winElement.innerText = 'You Lose';
 	}
