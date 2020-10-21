@@ -51,11 +51,6 @@ function checkWin() {
 		wrongLetterArray.push(playerGuess);
 		wrongLetters = wrongLetterArray.join('');
 	}
-	if (maxGuesses == 7) {
-		guesses.forEach((element) => {
-			element.disabled = true;
-		});
-	}
 	if (secretWordArray.includes(playerGuess)) {
 		correctLetterArray.push(playerGuess);
 	}
@@ -70,7 +65,8 @@ function resetGame() {
 	inputBtn.disabled = false;
 	maxGuesses = 0;
 	secretWordArray = [];
-	playerGuess = '';
+	wrongLetterArray = [];
+	correctLetterArray = [];
 	numberOfWrongGuesses.innerText = 'X = 0';
 	winElement.innerText = 'Keep Guessing!';
 	secretWordElement.innerText = '';
@@ -83,6 +79,15 @@ function render() {
 	wrongLetterElement.innerText = `Incorrect Guesses: ${wrongLetters}`;
 	if (maxGuesses == 7) {
 		winElement.innerText = 'You Lose';
+		guesses.forEach((element) => {
+			element.disabled = true;
+		});
+	}
+	if (correctLetterArray.length === secretWordArray.length) {
+		winElement.innerText = 'You Win';
+		guesses.forEach((element) => {
+			element.disabled = true;
+		});
 	}
 	console.log(correctLetterArray);
 	console.log(wrongLetterArray);
