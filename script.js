@@ -26,7 +26,7 @@ rulesBtn.addEventListener('click', rules);
 // Functions
 function getSecretWord(event) {
 	event.preventDefault();
-	//restrict secret word to letters of alphabet, no numbers or sp. char.
+	//restrict secret word to letters of alphabet, no numbers or special characters
 	capitalizeSecretWord = inputField.value.toUpperCase();
 	secretWordArray = capitalizeSecretWord.split('');
 	inputField.value = '';
@@ -37,7 +37,6 @@ function getSecretWord(event) {
 		dashedWord.appendChild(dashes);
 		dashes.innerText = '_ ';
 	}
-	secretWordElement.innerText = `${capitalizeSecretWord}`;
 }
 
 function checkGuess(event) {
@@ -83,12 +82,19 @@ function render() {
 			element.disabled = true;
 		});
 	}
+	// correct win logic
 	if (correctLetterArray.length === secretWordArray.length) {
 		winElement.innerText = 'You Win';
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});
+		secretWordElement.innerText = `${capitalizeSecretWord}`;
 	}
+	// in checkwin() function
+	// need to take guess and place into new array
+	// with nested loops for correct index
+	// or filter() method? for correcct placement
+	//or split secret word into object with each letter in own array and reveal each charArray when guessed correctly?
 	console.log(correctLetterArray);
 	console.log(wrongLetterArray);
 	console.log(secretWordArray);
