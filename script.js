@@ -1,13 +1,19 @@
 // Variables
+let wrongLetters = '';
 let maxGuesses = 0;
+let wrongLetterArray = [];
+let correctLetterArray = [];
+let secretWordArray = [];
 const guesses = document.querySelectorAll('.alphabet');
 const inputField = document.querySelector('.inputField');
 const inputBtn = document.querySelector('.inputBtn');
-const secretWord = document.querySelector('.secretWordElement');
+const dashedWord = document.querySelector('.dashedWordElement');
 const winElement = document.querySelector('.winElement');
 const resetBtn = document.querySelector('.reset');
 const rulesBtn = document.querySelector('.rules');
 const numberOfWrongGuesses = document.querySelector('.numberOfWrongGuesses');
+const secretWordElement = document.querySelector('.secretWordElement');
+const wrongLetterElement = document.querySelector('.wrongLetterElement');
 
 // Event Listeners
 inputBtn.addEventListener('click', getSecretWord);
@@ -28,14 +34,13 @@ function getSecretWord(event) {
 	inputBtn.disabled = true;
 	for (let i = 0; i < secretWordArray.length; i++) {
 		dashes = document.createElement('span');
-		secretWord.appendChild(dashes);
+		dashedWord.appendChild(dashes);
 		dashes.innerText = '_ ';
-		console.log('hi');
 	}
+	secretWordElement.innerText = `${capitalizeSecretWord}`;
 }
 
 function checkGuess(event) {
-	event.target.disabled = true;
 	playerGuess = event.target.innerText;
 	checkWin();
 }
@@ -43,11 +48,16 @@ function checkGuess(event) {
 function checkWin() {
 	if (!secretWordArray.includes(playerGuess)) {
 		maxGuesses++;
+		wrongLetterArray.push(playerGuess);
+		wrongLetters = wrongLetterArray.join('');
 	}
 	if (maxGuesses == 7) {
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});
+	}
+	if (secretWordArray.includes(playerGuess)) {
+		correctLetterArray.push(playerGuess);
 	}
 	render();
 }
@@ -61,16 +71,23 @@ function resetGame() {
 	maxGuesses = 0;
 	secretWordArray = [];
 	playerGuess = '';
-	numberOfWrongGuesses.innerText = '';
+	numberOfWrongGuesses.innerText = 'X = 0';
 	winElement.innerText = 'Keep Guessing!';
-	secretWord.innerText = '';
+	secretWordElement.innerText = '';
+	dashedWord.innerText = '';
+	wrongLetterElement.innerText = '';
 }
 
 function render() {
 	numberOfWrongGuesses.innerText = `X = ${maxGuesses}`;
+	wrongLetterElement.innerText = `Incorrect Guesses: ${wrongLetters}`;
 	if (maxGuesses == 7) {
 		winElement.innerText = 'You Lose';
 	}
+	console.log(correctLetterArray);
+	console.log(wrongLetterArray);
+	console.log(secretWordArray);
+	console.log(playerGuess);
 }
 
 function rules() {
