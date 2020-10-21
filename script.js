@@ -95,6 +95,7 @@ function render() {
 	// with nested loops for correct index
 	// or filter() method? for correcct placement
 	//or split secret word into object with each letter in own array and reveal each charArray when guessed correctly?
+	//indexOf(str, 0) and splice()?
 	console.log(correctLetterArray);
 	console.log(wrongLetterArray);
 	console.log(secretWordArray);
