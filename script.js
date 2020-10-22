@@ -91,10 +91,6 @@ function render() {
 		secretWordElement.innerText = `${capitalizeSecretWord}`;
 	}
 	// in checkwin() function
-	// need to take guess and place into new array
-	// with nested loops for correct index
-	// or filter() method? for correcct placement
-	//or split secret word into object with each letter in own array and reveal each charArray when guessed correctly?
 	//indexOf(str, 0) and splice()?
 	console.log(correctLetterArray);
 	console.log(wrongLetterArray);
@@ -105,3 +101,24 @@ function render() {
 function rules() {
 	console.log('rulesBtn');
 }
+
+let test = ['H', 'E', 'L', 'L', 'O'];
+let d = '_';
+let testGuess = 'L';
+let answerArray = [];
+
+for (let i = 0; i < test.length; i++) {
+	answerArray[i] = '_';
+
+	if (test.includes(testGuess)) {
+		for (let j = 0; j < test.length; j++) {
+			if (test[j] === testGuess) {
+				answerArray[j] = testGuess;
+			} else {
+				answerArray[j] = '_';
+			}
+		}
+	}
+}
+console.log(answerArray);
+console.log(answerArray.join(''));
