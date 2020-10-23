@@ -6,6 +6,7 @@ let wrongLetterArray = [];
 let correctLetterArray = [];
 let secretWordArray = [];
 let answerArray = [];
+let capitalizeSecretWord = '';
 const guesses = document.querySelectorAll('.alphabet');
 const inputField = document.querySelector('.inputField');
 const inputBtn = document.querySelector('.inputBtn');
@@ -25,7 +26,7 @@ guesses.forEach((element) => {
 resetBtn.addEventListener('click', resetGame);
 rulesBtn.addEventListener('click', rules);
 
-// Functions
+// Functions.l
 function getSecretWord(event) {
 	event.preventDefault();
 	capitalizeSecretWord = inputField.value.toUpperCase();
@@ -33,6 +34,7 @@ function getSecretWord(event) {
 	inputField.value = '';
 	inputField.disabled = true;
 	inputBtn.disabled = true;
+	winElement.innerText = 'Keep Guessing!';
 	for (let i = 0; i < secretWordArray.length; i++) {
 		dashes = document.createElement('span');
 		dashedWord.appendChild(dashes);
@@ -41,8 +43,12 @@ function getSecretWord(event) {
 }
 
 function checkGuess(event) {
-	playerGuess = event.target.innerText;
-	checkWin();
+	if (inputField.disabled === true) {
+		playerGuess = event.target.innerText;
+		checkWin();
+	} else {
+		winElement.innerText = 'Pick a word for your friend to guess!';
+	}
 }
 
 function checkWin() {
@@ -51,11 +57,13 @@ function checkWin() {
 		wrongLetterArray.push(playerGuess);
 		wrongLetters = wrongLetterArray.join('');
 	}
-	// correct win dash render
 	if (secretWordArray.includes(playerGuess)) {
 		for (let j = 0; j < secretWordArray.length; j++) {
 			if (secretWordArray[j] === playerGuess) {
 				answerArray[j] = playerGuess;
+			}
+			if (answerArray[j] !== secretWordArray[j]) {
+				answerArray[j] = '_';
 			}
 		}
 		answer = answerArray.join(' ');
@@ -81,6 +89,7 @@ function resetGame() {
 	answerArray = [];
 	playerGuess = '';
 	answer = '';
+	wrongLetters = '';
 }
 
 function render() {
@@ -98,13 +107,10 @@ function render() {
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});
+		inputField.disabled = true;
+		inputBtn.disabled = true;
 		secretWordElement.innerText = `${capitalizeSecretWord}`;
 	}
-	console.log(correctLetterArray);
-	console.log(wrongLetterArray);
-	console.log(secretWordArray);
-	console.log(playerGuess);
-	console.log(answerArray);
 }
 
 function rules() {
