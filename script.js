@@ -28,8 +28,6 @@ rulesBtn.addEventListener('click', rules);
 // Functions
 function getSecretWord(event) {
 	event.preventDefault();
-	//restrict secret word to letters of alphabet, no numbers or special characters
-	// need to restrict options to actual words
 	capitalizeSecretWord = inputField.value.toUpperCase();
 	secretWordArray = capitalizeSecretWord.split('');
 	inputField.value = '';
@@ -53,21 +51,14 @@ function checkWin() {
 		wrongLetterArray.push(playerGuess);
 		wrongLetters = wrongLetterArray.join('');
 	}
+	// correct win dash render
 	if (secretWordArray.includes(playerGuess)) {
-		correctLetterArray.push(playerGuess);
-		for (let i = 0; i < correctLetterArray.length; i++) {
-			//forEach??
-			answerArray[i] = '_';
-			for (let j = 0; j < correctLetterArray.length; j++) {
-				if (correctLetterArray[j] === playerGuess) {
-					answerArray[j] = playerGuess;
-				} else {
-					answerArray[j] = '_';
-				}
+		for (let j = 0; j < secretWordArray.length; j++) {
+			if (secretWordArray[j] === playerGuess) {
+				answerArray[j] = playerGuess;
 			}
 		}
-		answer = answerArray.join('');
-		secretWordElement.innerText = `${answer}`;
+		answer = answerArray.join(' ');
 	}
 	render();
 }
@@ -89,9 +80,11 @@ function resetGame() {
 	wrongLetterElement.innerText = '';
 	answerArray = [];
 	playerGuess = '';
+	answer = '';
 }
 
 function render() {
+	secretWordElement.innerText = `${answer}`;
 	numberOfWrongGuesses.innerText = `X = ${maxGuesses}`;
 	wrongLetterElement.innerText = `Incorrect Guesses: ${wrongLetters}`;
 	if (maxGuesses == 7) {
@@ -100,8 +93,7 @@ function render() {
 			element.disabled = true;
 		});
 	}
-	// correct win logic
-	if (answerArray.length === secretWordArray.length) {
+	if (answerArray.join('') === secretWordArray.join('')) {
 		winElement.innerText = 'You Win';
 		guesses.forEach((element) => {
 			element.disabled = true;
@@ -112,9 +104,9 @@ function render() {
 	console.log(wrongLetterArray);
 	console.log(secretWordArray);
 	console.log(playerGuess);
+	console.log(answerArray);
 }
 
 function rules() {
 	console.log('rulesBtn');
 }
-

@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<script defer src="script.js"></script>
-		<title>Spaceman</title>
-	</head>
-	<body>
-		<h1>Spaceman</h1>
-		<button class='rules'>How To Play</button>
-		<form>
-			<label>Enter Secret Word: </label><br />
-			<input class="inputField" />
-			<input type="submit" class="inputBtn" />
-		</form>
-		<div class='numberOfWrongGuesses'>X = 0</div>
-		<span>
-			<button class='alphabet'>A</button>
-			<button class='alphabet'>B</button>
-			<button class='alphabet'>C</button>
-			<button class='alphabet'>D</button>
-			<button class='alphabet'>E</button>
-			<button class='alphabet'>F</button>
-			<button class='alphabet'>G</button>
-			<button class='alphabet'>H</button>
-			<button class='alphabet'>I</button>
-			<button class='alphabet'>J</button>
-			<button class='alphabet'>K</button>
-			<button class='alphabet'>L</button>
-			<button class='alphabet'>M</button>
-			<button class='alphabet'>N</button>
-			<button class='alphabet'>O</button>
-			<button class='alphabet'>P</button>
-			<button class='alphabet'>Q</button>
-			<button class='alphabet'>R</button>
-			<button class='alphabet'>S</button>
-			<button class='alphabet'>T</button>
-			<button class='alphabet'>U</button>
-			<button class='alphabet'>V</button>
-			<button class='alphabet'>W</button>
-			<button class='alphabet'>X</button>
-			<button class='alphabet'>Y</button>
-			<button class='alphabet'>Z</button>
-		</span>
-		<h2 class='secretWordElement'></h2>
-		<h2 class='dashedWordElement'></h2>
-		<h2 class="wrongLetterElement"></h2>
-		<h2 class='winElement'>Keep Guessing!</h2>
-		<button class='reset'>Reset</button>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+	<script defer src="script.js"></script>
+	<title>Spaceman</title>
+</head>
+
+<body>
+	<h1>Spaceman</h1>
+	<button class='rules'>How To Play</button>
+	<form>
+		<label>Enter Secret Word: </label><br />
+		<select class="inputField">
+			<option>Hello</option>
+		</select>
+		<input type="submit" class="inputBtn" />
+	</form>
+	<div class='numberOfWrongGuesses'>X = 0</div>
+	<span>
+		<button class='alphabet'>A</button>
+		<button class='alphabet'>B</button>
+		<button class='alphabet'>C</button>
+		<button class='alphabet'>D</button>
+		<button class='alphabet'>E</button>
+		<button class='alphabet'>F</button>
+		<button class='alphabet'>G</button>
+		<button class='alphabet'>H</button>
+		<button class='alphabet'>I</button>
+		<button class='alphabet'>J</button>
+		<button class='alphabet'>K</button>
+		<button class='alphabet'>L</button>
+		<button class='alphabet'>M</button>
+		<button class='alphabet'>N</button>
+		<button class='alphabet'>O</button>
+		<button class='alphabet'>P</button>
+		<button class='alphabet'>Q</button>
+		<button class='alphabet'>R</button>
+		<button class='alphabet'>S</button>
+		<button class='alphabet'>T</button>
+		<button class='alphabet'>U</button>
+		<button class='alphabet'>V</button>
+		<button class='alphabet'>W</button>
+		<button class='alphabet'>X</button>
+		<button class='alphabet'>Y</button>
+		<button class='alphabet'>Z</button>
+	</span>
+	<h2 class='secretWordElement'></h2>
+	<h2 class='dashedWordElement'></h2>
+	<h2 class="wrongLetterElement"></h2>
+	<h2 class='winElement'>Keep Guessing!</h2>
+	<button class='reset'>Reset</button>
+</body>
+
 </html>
