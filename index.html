@@ -14,7 +14,15 @@
 
 <body>
 	<h1>Spaceman</h1>
-	<button type="button" class='btn btn-success rules'>How To Play</button>
+	<button id="openModal" type="button" class='btn btn-success rules'>How To Play</button>
+	<div id="modal">
+		<div id="modal-textbox">
+			<a id="close" href="#">Close</a>
+			<h1>How to play Spaceman</h1>
+			<p>Player picks a word for a friend to guess.</p>
+			<p>Player guesses letters until the word is revealed or there and 7 incorrect guesses</p>
+		</div>
+	</div>
 	<form>
 		<label>Select Secret Word: </label><br />
 		<select class="inputField">

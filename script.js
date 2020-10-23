@@ -13,10 +13,12 @@ const inputBtn = document.querySelector('.inputBtn');
 const dashedWord = document.querySelector('.dashedWordElement');
 const winElement = document.querySelector('.winElement');
 const resetBtn = document.querySelector('.reset');
-const rulesBtn = document.querySelector('.rules');
 const numberOfWrongGuesses = document.querySelector('.numberOfWrongGuesses');
 const secretWordElement = document.querySelector('.secretWordElement');
 const wrongLetterElement = document.querySelector('.wrongLetterElement');
+const openBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal');
+const close = document.getElementById('close');
 
 // Event Listeners
 inputBtn.addEventListener('click', getSecretWord);
@@ -24,7 +26,8 @@ guesses.forEach((element) => {
 	element.addEventListener('click', checkGuess);
 });
 resetBtn.addEventListener('click', resetGame);
-rulesBtn.addEventListener('click', rules);
+openBtn.addEventListener('click', openModal);
+close.addEventListener('click', closeModal);
 
 // Functions.l
 function getSecretWord(event) {
@@ -114,6 +117,10 @@ function render() {
 	}
 }
 
-function rules() {
-	console.log('rulesBtn');
+function closeModal() {
+	modal.style.display = 'none';
+}
+
+function openModal() {
+	modal.style.display = 'block';
 }
