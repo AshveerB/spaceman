@@ -25,9 +25,12 @@ Have a player enter a word that will be guessed during the game. The word is the
 
 ## Stretch Goals
 
+- Media Queries and Accessibility.
 - Let players enter their names.
 - Add a countdown timer.
 - Track scores across games.
 - Add clues for words.
 
 ## Deployed Game
+
+[Spaceman](https://ashveerb.github.io/spaceman/.)
