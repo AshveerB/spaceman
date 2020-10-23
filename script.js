@@ -1,7 +1,7 @@
 // Variables
 let wrongLetters = '';
 let answer = '';
-let maxGuesses = 0;
+let maxGuesses = 7;
 let wrongLetterArray = [];
 let correctLetterArray = [];
 let secretWordArray = [];
@@ -53,7 +53,7 @@ function checkGuess(event) {
 
 function checkWin() {
 	if (!secretWordArray.includes(playerGuess)) {
-		maxGuesses++;
+		maxGuesses--;
 		wrongLetterArray.push(playerGuess);
 		wrongLetters = wrongLetterArray.join('');
 	}
@@ -77,11 +77,11 @@ function resetGame() {
 	});
 	inputField.disabled = false;
 	inputBtn.disabled = false;
-	maxGuesses = 0;
+	maxGuesses = 7;
 	secretWordArray = [];
 	wrongLetterArray = [];
 	correctLetterArray = [];
-	numberOfWrongGuesses.innerText = 'X = 0';
+	numberOfWrongGuesses.innerText = 'X = 7';
 	winElement.innerText = 'Keep Guessing!';
 	secretWordElement.innerText = '';
 	dashedWord.innerText = '';
@@ -96,7 +96,7 @@ function render() {
 	secretWordElement.innerText = `${answer}`;
 	numberOfWrongGuesses.innerText = `X = ${maxGuesses}`;
 	wrongLetterElement.innerText = `Incorrect Guesses: ${wrongLetters}`;
-	if (maxGuesses == 7) {
+	if (maxGuesses == 0) {
 		winElement.innerText = 'You Lose';
 		guesses.forEach((element) => {
 			element.disabled = true;
@@ -104,6 +104,7 @@ function render() {
 	}
 	if (answerArray.join('') === secretWordArray.join('')) {
 		winElement.innerText = 'You Win';
+		confetti.start(5000);
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});

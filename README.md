@@ -10,7 +10,7 @@
 
 ## Project Description
 
-Have a player enter a word that will be guessed during the game. The word is then hidden and represented by blank spaces. The second player then chooses letters, which are revealed if present. If not, parts of the spaceman's spaceship are built.
+Have a player enter a word that will be guessed during the game. The word is then hidden and represented by blank spaces. The second player then chooses letters, which are revealed if present. If not, the second player is allowed seven errors before the ship takes off and you they lose!
 
 ## Wire-Frames
 
@@ -28,5 +28,6 @@ Have a player enter a word that will be guessed during the game. The word is the
 - Let players enter their names.
 - Add a countdown timer.
 - Track scores across games.
+- Add clues for words.
 
 ## Deployed Game

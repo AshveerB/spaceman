@@ -5,3 +5,11 @@ h1 {
 span {
     cursor: pointer;
 }
+
+.alphabet {
+    padding: 4px;
+}
+
+.inputBtn {
+    background-color: chocolate;
+}
