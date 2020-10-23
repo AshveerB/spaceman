@@ -1,9 +1,11 @@
 // Variables
 let wrongLetters = '';
+let answer = '';
 let maxGuesses = 0;
 let wrongLetterArray = [];
 let correctLetterArray = [];
 let secretWordArray = [];
+let answerArray = [];
 const guesses = document.querySelectorAll('.alphabet');
 const inputField = document.querySelector('.inputField');
 const inputBtn = document.querySelector('.inputBtn');
@@ -27,6 +29,7 @@ rulesBtn.addEventListener('click', rules);
 function getSecretWord(event) {
 	event.preventDefault();
 	//restrict secret word to letters of alphabet, no numbers or special characters
+	// need to restrict options to actual words
 	capitalizeSecretWord = inputField.value.toUpperCase();
 	secretWordArray = capitalizeSecretWord.split('');
 	inputField.value = '';
@@ -52,6 +55,19 @@ function checkWin() {
 	}
 	if (secretWordArray.includes(playerGuess)) {
 		correctLetterArray.push(playerGuess);
+		for (let i = 0; i < correctLetterArray.length; i++) {
+			//forEach??
+			answerArray[i] = '_';
+			for (let j = 0; j < correctLetterArray.length; j++) {
+				if (correctLetterArray[j] === playerGuess) {
+					answerArray[j] = playerGuess;
+				} else {
+					answerArray[j] = '_';
+				}
+			}
+		}
+		answer = answerArray.join('');
+		secretWordElement.innerText = `${answer}`;
 	}
 	render();
 }
@@ -71,6 +87,8 @@ function resetGame() {
 	secretWordElement.innerText = '';
 	dashedWord.innerText = '';
 	wrongLetterElement.innerText = '';
+	answerArray = [];
+	playerGuess = '';
 }
 
 function render() {
@@ -83,15 +101,13 @@ function render() {
 		});
 	}
 	// correct win logic
-	if (correctLetterArray.length === secretWordArray.length) {
+	if (answerArray.length === secretWordArray.length) {
 		winElement.innerText = 'You Win';
 		guesses.forEach((element) => {
 			element.disabled = true;
 		});
 		secretWordElement.innerText = `${capitalizeSecretWord}`;
 	}
-	// in checkwin() function
-	//indexOf(str, 0) and splice()?
 	console.log(correctLetterArray);
 	console.log(wrongLetterArray);
 	console.log(secretWordArray);
@@ -102,23 +118,3 @@ function rules() {
 	console.log('rulesBtn');
 }
 
-let test = ['H', 'E', 'L', 'L', 'O'];
-let d = '_';
-let testGuess = 'L';
-let answerArray = [];
-
-for (let i = 0; i < test.length; i++) {
-	answerArray[i] = '_';
-
-	if (test.includes(testGuess)) {
-		for (let j = 0; j < test.length; j++) {
-			if (test[j] === testGuess) {
-				answerArray[j] = testGuess;
-			} else {
-				answerArray[j] = '_';
-			}
-		}
-	}
-}
-console.log(answerArray);
-console.log(answerArray.join(''));
