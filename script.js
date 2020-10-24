@@ -7,6 +7,7 @@ let correctLetterArray = [];
 let secretWordArray = [];
 let answerArray = [];
 let capitalizeSecretWord = '';
+const one = document.querySelector('.one');
 const guesses = document.querySelectorAll('.alphabet');
 const inputField = document.querySelector('.inputField');
 const inputBtn = document.querySelector('.inputBtn');
@@ -73,12 +74,12 @@ function checkWin() {
 	}
 	render();
 }
-
 function resetGame() {
 	guesses.forEach((element) => {
 		element.disabled = false;
 	});
 	inputField.disabled = false;
+	inputField.value = one.innerText;
 	inputBtn.disabled = false;
 	maxGuesses = 7;
 	secretWordArray = [];
