@@ -85,7 +85,7 @@ function resetGame() {
 	secretWordArray = [];
 	wrongLetterArray = [];
 	correctLetterArray = [];
-	numberOfWrongGuesses.innerText = 'X = 7';
+	numberOfWrongGuesses.innerText = 'Guesses Left = 7';
 	winElement.innerText = 'Keep Guessing!';
 	secretWordElement.innerText = '';
 	dashedWord.innerText = '';
@@ -98,7 +98,7 @@ function resetGame() {
 
 function render() {
 	secretWordElement.innerText = `${answer}`;
-	numberOfWrongGuesses.innerText = `X = ${maxGuesses}`;
+	numberOfWrongGuesses.innerText = `Guesses Left = ${maxGuesses}`;
 	wrongLetterElement.innerText = `Incorrect Guesses: ${wrongLetters}`;
 	if (maxGuesses == 0) {
 		winElement.innerText = 'You Lose';
