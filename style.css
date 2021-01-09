@@ -1,5 +1,6 @@
 h1 {
 	color: blueviolet;
+	text-align: center;
 }
 
 span {
@@ -12,6 +13,22 @@ span {
 
 .inputBtn {
 	background-color: chocolate;
+}
+
+.winElement {
+		color: blueviolet;
+}
+
+.rules {
+		float: right;
+}
+
+.selectHtml {
+	color: blueviolet;
+}
+
+.numberOfWrongGuesses {
+	color: blueviolet;
 }
 
 #modal {
@@ -42,17 +59,45 @@ span {
 
 @media only screen and (max-width: 600px) {
 	h1 {
-		text-align: center;
 		font-size: 45px;
-	}
-	.rules {
-		float: right;
 	}
 	.selectHtml {
 		font-size: 20px;
-		color: blueviolet;
 	}
-	.winElement {
-		color: blueviolet;
+	.numberOfWrongGuesses {
+		font-size: 20px;
 	}
+}
+
+@media only screen and (min-width: 600px) {
+	h1 {
+		font-size: 55px;
+	}
+	.selectHtml {
+		font-size: 30px;
+	}
+	.numberOfWrongGuesses {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	select {
+		height: 30px;
+		font-size: 25px;
+	}
+	.alphabet {
+		width: 40px;
+	}
+	.inputBtn {
+		font-size: 25px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
 }
